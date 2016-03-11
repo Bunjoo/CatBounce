@@ -14,6 +14,8 @@ var bgm = AVAudioPlayer()
 
 class GameViewController: UIViewController {
 
+    
+    //function to play bgm
     func playBGM(filename: String){
         let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
         guard let newURL = url else{
@@ -33,7 +35,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //call play method
         playBGM("bgm.mp3")
 
         if let scene = GameScene(fileNamed:"MainMenu") {
@@ -53,6 +55,9 @@ class GameViewController: UIViewController {
             skView.presentScene(scene)
             
         }
+        
+        
+        
     }
 
     override func shouldAutorotate() -> Bool {

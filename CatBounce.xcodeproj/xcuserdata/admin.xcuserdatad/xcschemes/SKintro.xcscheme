@@ -17,7 +17,7 @@
                BlueprintIdentifier = "842E03511C9164C700AB7DFA"
                BuildableName = "SKintro.app"
                BlueprintName = "SKintro"
-               ReferencedContainer = "container:bouncingCats.xcodeproj">
+               ReferencedContainer = "container:CatBounce.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "842E03691C9164C700AB7DFA"
                BuildableName = "SKintroTests.xctest"
                BlueprintName = "SKintroTests"
-               ReferencedContainer = "container:bouncingCats.xcodeproj">
+               ReferencedContainer = "container:CatBounce.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "842E03741C9164C700AB7DFA"
                BuildableName = "SKintroUITests.xctest"
                BlueprintName = "SKintroUITests"
-               ReferencedContainer = "container:bouncingCats.xcodeproj">
+               ReferencedContainer = "container:CatBounce.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "842E03511C9164C700AB7DFA"
             BuildableName = "SKintro.app"
             BlueprintName = "SKintro"
-            ReferencedContainer = "container:bouncingCats.xcodeproj">
+            ReferencedContainer = "container:CatBounce.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "842E03511C9164C700AB7DFA"
             BuildableName = "SKintro.app"
             BlueprintName = "SKintro"
-            ReferencedContainer = "container:bouncingCats.xcodeproj">
+            ReferencedContainer = "container:CatBounce.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "842E03511C9164C700AB7DFA"
             BuildableName = "SKintro.app"
             BlueprintName = "SKintro"
-            ReferencedContainer = "container:bouncingCats.xcodeproj">
+            ReferencedContainer = "container:CatBounce.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

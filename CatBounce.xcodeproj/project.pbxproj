@@ -20,6 +20,7 @@
 		842E03901C9168A100AB7DFA /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E038F1C9168A100AB7DFA /* MainMenu.swift */; };
 		846CFB091C92929000764399 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846CFB081C92929000764399 /* bgm.mp3 */; };
 		846CFB0C1C92BB7800764399 /* meow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846CFB0B1C92BB7800764399 /* meow.wav */; };
+		846CFB0E1C92C57300764399 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846CFB0D1C92C57300764399 /* lose.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		846CFB081C92929000764399 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
 		846CFB0A1C929A8A00764399 /* bgm_org.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = bgm_org.m4a; sourceTree = "<group>"; };
 		846CFB0B1C92BB7800764399 /* meow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = meow.wav; sourceTree = "<group>"; };
+		846CFB0D1C92C57300764399 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		846CFB071C92926D00764399 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				846CFB0D1C92C57300764399 /* lose.wav */,
 				846CFB0A1C929A8A00764399 /* bgm_org.m4a */,
 				846CFB0B1C92BB7800764399 /* meow.wav */,
 				846CFB081C92929000764399 /* bgm.mp3 */,
@@ -235,7 +238,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 842E034D1C9164C700AB7DFA /* Build configuration list for PBXProject "bouncingCats" */;
+			buildConfigurationList = 842E034D1C9164C700AB7DFA /* Build configuration list for PBXProject "CatBounce" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -267,6 +270,7 @@
 				842E038E1C91688800AB7DFA /* MainMenu.sks in Resources */,
 				842E035F1C9164C700AB7DFA /* Main.storyboard in Resources */,
 				846CFB0C1C92BB7800764399 /* meow.wav in Resources */,
+				846CFB0E1C92C57300764399 /* lose.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +515,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		842E034D1C9164C700AB7DFA /* Build configuration list for PBXProject "bouncingCats" */ = {
+		842E034D1C9164C700AB7DFA /* Build configuration list for PBXProject "CatBounce" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				842E037C1C9164C700AB7DFA /* Debug */,
