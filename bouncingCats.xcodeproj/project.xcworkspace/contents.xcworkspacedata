@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SKintro.xcodeproj">
+      location = "self:/Users/admin/Documents/SKintro/bouncingCats.xcodeproj">
    </FileRef>
 </Workspace>

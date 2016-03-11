@@ -8,17 +8,39 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
+
+var bgm = AVAudioPlayer()
 
 class GameViewController: UIViewController {
 
+    func playBGM(filename: String){
+        let url = NSBundle.mainBundle().URLForResource(filename, withExtension: nil)
+        guard let newURL = url else{
+            print("could not find file: \(filename)")
+            return
+        }
+        do{
+            bgm = try AVAudioPlayer(contentsOfURL: newURL)
+            bgm.numberOfLoops = -1
+            bgm.prepareToPlay()
+            bgm.play()
+        }
+        catch let error as NSError{
+            print(error.description)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        playBGM("bgm.mp3")
 
         if let scene = GameScene(fileNamed:"MainMenu") {
             // Configure the view.
             let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+            skView.showsFPS = false
+            skView.showsNodeCount = false
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
@@ -29,6 +51,7 @@ class GameViewController: UIViewController {
             // .fill -> makes it fit into screen, but can look squished (also shows more than "oultines") (scales)
             // .ResizeFill -> changes size of scene to match device. (zooms in wayy too much?)
             skView.presentScene(scene)
+            
         }
     }
 

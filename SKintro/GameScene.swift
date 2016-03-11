@@ -7,33 +7,49 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 let wallMask:UInt32 = 0x1 << 0 // 1
 let catMask:UInt32 = 0x1 << 1 // 2
 let floorMask:UInt32 = 0x1 << 2 // 4
-let replay = SKLabelNode(fontNamed: "Chalkduster")
+
 
 class GameScene: SKScene , SKPhysicsContactDelegate{
     
     var cat:SKSpriteNode!
     var touchLocation:CGPoint = CGPointZero
-    
+    var bgm:SKAudioNode!
+    var labelLose:SKLabelNode!
+    var labelReplay:SKLabelNode!
+    var labelCounter:SKLabelNode!
+    var bounces:Int = 0
+    var inGame = true
     
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        /*let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
-        self.addChild(myLabel)*/
         
         cat = self.childNodeWithName("cat") as! SKSpriteNode
+        labelLose = self.childNodeWithName("labelLose") as! SKLabelNode
+        labelReplay = self.childNodeWithName("labelReplay") as! SKLabelNode
+        labelCounter = self.childNodeWithName("counter") as! SKLabelNode
+        
+        labelLose.hidden = true;
+        labelReplay.hidden = true;
         
         let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
         cat.runAction(SKAction.repeatActionForever(action))
         
         self.physicsWorld.contactDelegate = self
+        
+        //this method used for occasional sounds
+        
+        //self.runAction(SKAction.playSoundFileNamed("bgm.mp3", waitForCompletion: false))
+        
+        //correct method to use bgm -- doesnt work?
+        //let backgroundMusic = SKAudioNode(fileNamed: "bgm.mp3")
+        //self.addChild(backgroundMusic)
+        //bgm = SKAudioNode(fileNamed: "bgm.mp3")
+        //self.addChild(bgm)
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -43,36 +59,44 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             
             if()
         }*/
-        cat.physicsBody?.velocity = CGVectorMake(0,1500)
-        
+        //cat.physicsBody?.velocity = CGVectorMake(0,1500)
+        for touch in touches {
+            let location = touch.locationInNode(self)
+            
+            if(cat .containsPoint(location) && inGame){
+                cat.physicsBody?.velocity = CGVectorMake(0,1500)
+                bounces += 1
+                if bounces%5 == 0 {
+                    self.runAction(SKAction.playSoundFileNamed("meow.wav", waitForCompletion: false))
+                }
+            }
+        }
         
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         cat.physicsBody?.collisionBitMask = wallMask | floorMask
         cat.physicsBody?.contactTestBitMask = cat.physicsBody!.collisionBitMask
-        /*
-        for touch in touches {
+        
+        for touch in touches{
             let location = touch.locationInNode(self)
             
-            if replay.position == location {
+            if labelReplay.hidden == false{
+                if labelReplay.containsPoint(location){
+                    let game:GameScene = GameScene(fileNamed: "GameScene")!
+                    game.scaleMode = .AspectFill
+                    let transition:SKTransition = SKTransition.crossFadeWithDuration(0.5)
+                    self.view?.presentScene(game, transition: transition)
+                }
             }
-        }*/
+
+        }
         
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
-        /*print(cat.position.y)
-        if(cat.position.y <= 56){
-            let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-            myLabel.text = "Hello, World!"
-            myLabel.fontSize = 45
-            myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-            
-            self.addChild(myLabel)
-        }
-        */
+        let strBounces = bounces as NSNumber
+        labelCounter.text = "Bounces: " + strBounces.stringValue
         
     }
     
@@ -82,21 +106,21 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         let other = (cat == contact.bodyA) ? contact.bodyB : contact.bodyA
         
         if other.categoryBitMask == floorMask {
-            let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-            myLabel.text = "You Lose!"
-            myLabel.fontSize = 80
-            myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-            self.addChild(myLabel)
+            labelLose.hidden = false
+            labelReplay.hidden = false
+            inGame = false
             cat.node?.removeAllActions()
-            
-            
-            replay.text = "play again?"
-            replay.fontSize = 50
-            replay.position = CGPoint(x:CGRectGetMidX(self.frame), y:myLabel.position.y - 50)
-            self.addChild(replay)
-            
             
         }
     }
     
 }
+// didmovetoview
+/* Setup your scene here */
+/*let myLabel = SKLabelNode(fontNamed:"Chalkduster")
+myLabel.text = "Hello, World!"
+myLabel.fontSize = 45
+myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+
+self.addChild(myLabel)*/
+

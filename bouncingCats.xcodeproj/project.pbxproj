@@ -18,6 +18,8 @@
 		842E037A1C9164C700AB7DFA /* SKintroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E03791C9164C700AB7DFA /* SKintroUITests.swift */; };
 		842E038E1C91688800AB7DFA /* MainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = 842E038D1C91688800AB7DFA /* MainMenu.sks */; };
 		842E03901C9168A100AB7DFA /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E038F1C9168A100AB7DFA /* MainMenu.swift */; };
+		846CFB091C92929000764399 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846CFB081C92929000764399 /* bgm.mp3 */; };
+		846CFB0C1C92BB7800764399 /* meow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846CFB0B1C92BB7800764399 /* meow.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		842E037B1C9164C700AB7DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842E038D1C91688800AB7DFA /* MainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenu.sks; sourceTree = "<group>"; };
 		842E038F1C9168A100AB7DFA /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		846CFB081C92929000764399 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
+		846CFB0A1C929A8A00764399 /* bgm_org.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = bgm_org.m4a; sourceTree = "<group>"; };
+		846CFB0B1C92BB7800764399 /* meow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = meow.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +110,7 @@
 		842E03541C9164C700AB7DFA /* SKintro */ = {
 			isa = PBXGroup;
 			children = (
+				846CFB071C92926D00764399 /* sounds */,
 				842E03551C9164C700AB7DFA /* AppDelegate.swift */,
 				842E03571C9164C700AB7DFA /* GameScene.sks */,
 				842E03591C9164C700AB7DFA /* GameScene.swift */,
@@ -135,6 +141,16 @@
 				842E037B1C9164C700AB7DFA /* Info.plist */,
 			);
 			path = SKintroUITests;
+			sourceTree = "<group>";
+		};
+		846CFB071C92926D00764399 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				846CFB0A1C929A8A00764399 /* bgm_org.m4a */,
+				846CFB0B1C92BB7800764399 /* meow.wav */,
+				846CFB081C92929000764399 /* bgm.mp3 */,
+			);
+			name = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +221,7 @@
 				TargetAttributes = {
 					842E03511C9164C700AB7DFA = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = BJV57HV25X;
+						DevelopmentTeam = R5NZ4V34AP;
 					};
 					842E03691C9164C700AB7DFA = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -219,7 +235,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 842E034D1C9164C700AB7DFA /* Build configuration list for PBXProject "SKintro" */;
+			buildConfigurationList = 842E034D1C9164C700AB7DFA /* Build configuration list for PBXProject "bouncingCats" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -247,8 +263,10 @@
 				842E03581C9164C700AB7DFA /* GameScene.sks in Resources */,
 				842E03641C9164C700AB7DFA /* LaunchScreen.storyboard in Resources */,
 				842E03611C9164C700AB7DFA /* Assets.xcassets in Resources */,
+				846CFB091C92929000764399 /* bgm.mp3 in Resources */,
 				842E038E1C91688800AB7DFA /* MainMenu.sks in Resources */,
 				842E035F1C9164C700AB7DFA /* Main.storyboard in Resources */,
+				846CFB0C1C92BB7800764399 /* meow.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,10 +434,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SKintro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = axu.SKintro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.terratap.bouncingCats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -427,10 +448,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SKintro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = axu.SKintro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.terratap.bouncingCats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -487,7 +511,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		842E034D1C9164C700AB7DFA /* Build configuration list for PBXProject "SKintro" */ = {
+		842E034D1C9164C700AB7DFA /* Build configuration list for PBXProject "bouncingCats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				842E037C1C9164C700AB7DFA /* Debug */,
@@ -503,6 +527,7 @@
 				842E03801C9164C700AB7DFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		842E03811C9164C700AB7DFA /* Build configuration list for PBXNativeTarget "SKintroTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +536,7 @@
 				842E03831C9164C700AB7DFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		842E03841C9164C700AB7DFA /* Build configuration list for PBXNativeTarget "SKintroUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +545,7 @@
 				842E03861C9164C700AB7DFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
