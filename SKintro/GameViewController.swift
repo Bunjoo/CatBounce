@@ -13,7 +13,7 @@ import AVFoundation
 var bgm = AVAudioPlayer()
 
 class GameViewController: UIViewController {
-
+    
     
     //function to play bgm
     func playBGM(filename: String){
@@ -37,7 +37,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         //call play method
         playBGM("bgm.mp3")
-
+        
         if let scene = GameScene(fileNamed:"MainMenu") {
             // Configure the view.
             let skView = self.view as! SKView
@@ -59,11 +59,11 @@ class GameViewController: UIViewController {
         
         
     }
-
+    
     override func shouldAutorotate() -> Bool {
         return true
     }
-
+    
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             return .AllButUpsideDown
@@ -71,12 +71,12 @@ class GameViewController: UIViewController {
             return .All
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }

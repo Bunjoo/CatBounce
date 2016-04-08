@@ -15,6 +15,8 @@ let catMask:UInt32 = 0x1 << 1 // 2
 let floorMask:UInt32 = 0x1 << 2 // 4
 
 
+
+
 class GameScene: SKScene , SKPhysicsContactDelegate{
     
     //Variables
@@ -59,7 +61,17 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             //if tapped on cat and game is not over
             if(cat .containsPoint(location) && inGame){
                 //propel cat up
-                cat.physicsBody?.velocity = CGVectorMake(0,1500)
+                //cat.physicsBody?.velocity = CGVectorMake(0,1500)
+                
+                let randnum = Int(arc4random_uniform(6)) // makes random number 0-5
+                print(randnum)
+                if(randnum%2 == 0){
+                    cat.physicsBody?.applyImpulse(CGVectorMake((CGFloat(100 * randnum)), 3000))
+                }
+                else{
+                    cat.physicsBody?.applyImpulse(CGVectorMake((CGFloat(-100 * randnum)) , 3000))
+                }
+                
                 //ADD BOUNCE CAT AT ANGLE??
                 //increment bounce
                 bounces += 1
@@ -108,6 +120,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
         let cat = (contact.bodyA.categoryBitMask == catMask) ? contact.bodyA: contact.bodyB
         let other = (cat == contact.bodyA) ? contact.bodyB : contact.bodyA
+        
         
         if other.categoryBitMask == floorMask {
             inGame = false
